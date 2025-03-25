@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "test-tf-cloud" { 
-   bucket = "Jenniekochittal"
+   bucket = "jenniekochittal"
    acl = "private"
    versioning { 
       enabled = true
