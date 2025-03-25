@@ -8,7 +8,7 @@ variable "AWS_SECRET_KEY" {
      description = "Secret key for aws environment"
 }
 
-variable "region" {
+variable "s3_bucket_name" {
+  description = "Name of the S3 bucket"
   type        = string
-
 }
