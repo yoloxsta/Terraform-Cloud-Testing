@@ -17,3 +17,7 @@ variable "region" {
   type        = string
 
 }
+variable "env" {
+  description = "Environment name (e.g., dev, staging, qa)"
+  type        = string
+}
