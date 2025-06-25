@@ -25,6 +25,6 @@ module "s3_bucket" {
   source  = "app.terraform.io/Yoloxsta/s3-bucket/aws"
   version = "1.0.0"
 
-  s3_bucket_name = var.s3_bucket_name
-  region         = var.region
+  prefix      = var.env          # This is the prefix like "staging"
+  bucket_name = var.s3_bucket_name
 }
