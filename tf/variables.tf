@@ -1,23 +1,19 @@
 variable "AWS_ACCESS_KEY" {
-     type  = string
-     description = "Access key for aws environment"
+  type        = string
+  description = "AWS access key"
 }
 
 variable "AWS_SECRET_KEY" {
-     type  = string
-     description = "Secret key for aws environment"
+  type        = string
+  description = "AWS secret key"
 }
 
 variable "s3_bucket_name" {
-  description = "Name of the S3 bucket"
   type        = string
+  description = "S3 bucket name"
 }
 
 variable "region" {
   type        = string
-
-}
-variable "env" {
-  description = "Environment name (e.g., dev, staging, prod)"
-  type        = string
+  description = "AWS region"
 }

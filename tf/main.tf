@@ -1,16 +1,30 @@
-#resource "aws_s3_bucket" "bucket" {
-#  bucket = var.s3_bucket_name
-
-#  tags = {
-#    Name = var.s3_bucket_name
-#  }
-#}
-
-resource "aws_s3_bucket" "bucket" {
-  bucket = "${var.env}-${var.s3_bucket_name}"
-
-  tags = {
-    Name = "${var.env}-${var.s3_bucket_name}"
-    Environment = var.env
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
   }
+
+  cloud {
+    organization = "Yoloxsta"
+
+    workspaces {
+      name = "Terraform-Cloud-Testing-stag"
+    }
+  }
+}
+
+provider "aws" {
+  region     = var.region
+  access_key = var.AWS_ACCESS_KEY
+  secret_key = var.AWS_SECRET_KEY
+}
+
+module "s3_bucket" {
+  source  = "app.terraform.io/Yoloxsta/s3-bucket/aws"
+  version = "1.0.0"
+
+  s3_bucket_name = var.s3_bucket_name
+  region         = var.region
 }
