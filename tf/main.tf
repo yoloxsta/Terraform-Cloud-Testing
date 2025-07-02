@@ -29,7 +29,7 @@ module "s3_bucket" {
   bucket_name = var.s3_bucket_name
 }
 
-module "s3_bucket" {
+module "s3_bucket1" {
   source  = "app.terraform.io/Yoloxsta/s3-bucket/aws"
   version = "1.0.0"
 
