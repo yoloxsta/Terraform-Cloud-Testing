@@ -28,3 +28,11 @@ module "s3_bucket" {
   prefix      = var.env          # This is the prefix like "staging"
   bucket_name = var.s3_bucket_name
 }
+
+module "s3_bucket" {
+  source  = "app.terraform.io/Yoloxsta/s3-bucket/aws"
+  version = "1.0.0"
+
+  prefix      = var.env          # This is the prefix like "staging"
+  bucket_name = var.s3_bucket_name1
+}
