@@ -36,3 +36,12 @@ module "s3_bucket1" {
   prefix      = var.env          # This is the prefix like "staging"
   bucket_name = var.s3_bucket_name1
 }
+
+module "s3_bucket2" {
+  for_each = toset(var.s3_bucket_names)
+
+  source      = "app.terraform.io/Yoloxsta/s3-bucket/aws"
+  version     = "1.0.0"
+  prefix      = var.env
+  bucket_name = each.value
+}
